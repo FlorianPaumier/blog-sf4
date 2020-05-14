@@ -121,6 +121,11 @@ class Post
      */
     private $tags;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="relation")
+     */
+    private $category;
+
     public function __construct()
     {
         $this->publishedAt = new \DateTime();
@@ -140,7 +145,7 @@ class Post
 
     public function setTitle(string $title): void
     {
-        $this->title = $title;
+        $this->title = htmlentities($title);
     }
 
     public function getSlug(): ?string
@@ -228,5 +233,17 @@ class Post
     public function getTags(): Collection
     {
         return $this->tags;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
+
+        return $this;
     }
 }

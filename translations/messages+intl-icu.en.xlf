@@ -250,6 +250,14 @@
                 <source>label.actions</source>
                 <target>Actions</target>
             </trans-unit>
+            <trans-unit id="label.category">
+                <source>label.category</source>
+                <target>Category</target>
+            </trans-unit>
+            <trans-unit id="label.createdAt">
+                <source>label.createdAt</source>
+                <target>Created at</target>
+            </trans-unit>
             <trans-unit id="title.post_new">
                 <source>title.post_new</source>
                 <target>Post creation</target>
@@ -299,7 +307,10 @@
                 <source>menu.search</source>
                 <target>Search</target>
             </trans-unit>
-
+            <trans-unit id="menu.categories">
+                <source>menu.categories</source>
+                <target>Listes des categories</target>
+            </trans-unit>
             <trans-unit id="post.to_publish_a_comment">
                 <source>post.to_publish_a_comment</source>
                 <target>to publish a comment</target>

@@ -118,6 +118,11 @@ class AppFixtures extends Fixture
         ];
     }
 
+    /**
+     * Cette fonction permet de créer des posts avec des valeurs fictif
+     * On donne lui donne un tableau de phrases à parcourir, On aurait pu les générer aussi
+     * Pour chaque entrée on créer des valeurs randoms grâces à des données déjà exstente
+     */
     private function getPostData()
     {
         $posts = [];

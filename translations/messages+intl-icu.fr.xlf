@@ -157,6 +157,14 @@
                 <source>label.save_and_create_new</source>
                 <target>Enregistrer et créer un nouveau</target>
             </trans-unit>
+            <trans-unit id="label.category">
+                <source>label.category</source>
+                <target>Categorie</target>
+            </trans-unit>
+            <trans-unit id="label.createdAt">
+                <source>label.createdAt</source>
+                <target>Créer le</target>
+            </trans-unit>
             <trans-unit id="action.back_to_list">
                 <source>action.back_to_list</source>
                 <target>Retour à la liste des articles</target>
@@ -299,7 +307,10 @@
                 <source>menu.search</source>
                 <target>Recherche</target>
             </trans-unit>
-
+            <trans-unit id="menu.categories">
+                <source>menu.categories</source>
+                <target>Listes des categories</target>
+            </trans-unit>
             <trans-unit id="post.to_publish_a_comment">
                 <source>post.to_publish_a_comment</source>
                 <target>pour publier un commentaire</target>
@@ -426,5 +437,6 @@
                 <target>Derniers articles publiés sur le blog de démo Symfony</target>
             </trans-unit>
         </body>
+
     </file>
 </xliff>

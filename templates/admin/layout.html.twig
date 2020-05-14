@@ -24,8 +24,13 @@
         </a>
     </li>
     <li>
+        <a href="{{ path("admin_category_index") }}">
+            <i class="fa fa-folder"></i> {{ 'menu.categories'|trans }}</a>
+    </li>
+    <li>
         <a href="{{ path('blog_index') }}">
             <i class="fa fa-home" aria-hidden="true"></i> {{ 'menu.back_to_blog'|trans }}
         </a>
     </li>
+
 {% endblock %}

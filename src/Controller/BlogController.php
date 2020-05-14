@@ -11,6 +11,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Category;
 use App\Entity\Comment;
 use App\Entity\Post;
 use App\Events;
@@ -62,7 +63,7 @@ class BlogController extends AbstractController
     }
 
     /**
-     * @Route("/search", methods={"POST"}, name="blog_search")
+     * @Route("/search", name="blog_search")
      */
     public function search(Request $request, PostRepository $posts): Response
     {
@@ -70,7 +71,7 @@ class BlogController extends AbstractController
             return $this->render('blog/search.html.twig');
         }
 
-        $query = $request->query->get('s', '');
+        $query = $request->query->get('q', '');
         $limit = $request->query->get('l', 10);
         $foundPosts = $posts->findBySearchQuery($query, $limit);
 
@@ -80,6 +81,7 @@ class BlogController extends AbstractController
                 'title' => htmlspecialchars($post->getTitle(), ENT_COMPAT | ENT_HTML5),
                 'date' => $post->getPublishedAt()->format('M d, Y'),
                 'author' => htmlspecialchars($post->getAuthor()->getFullName(), ENT_COMPAT | ENT_HTML5),
+                'category' => $post->getCategory()->getTitle(),
                 'summary' => $post->getSummary(),
                 'url' => $this->generateUrl('blog_post', ['slug' => $post->getSlug()]),
             ];
@@ -108,6 +110,14 @@ class BlogController extends AbstractController
         return $this->render('blog/post_show.html.twig', ['post' => $post]);
     }
 
+    /**
+     * @Route("/category/{slug}", methods={"GET"}, name="bloq_category_posts")
+     * @param Category $category
+     * @return Response
+     */
+    public function categoryPostShow(Category $category){
+        return $this->render("blog/category_posts_show.html.twig", ["posts" => $category->getPosts()]);
+    }
     /**
      * @Route("/comment/{postSlug}/new", methods={"POST"}, name="comment_new")
      * @IsGranted("IS_AUTHENTICATED_FULLY")
